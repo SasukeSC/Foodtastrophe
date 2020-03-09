@@ -1,13 +1,16 @@
 'use strict';
+//These are my API KEYS
 const API_KEY = "AIzaSyD7rk-u3PkM2D-M0QRlLitc7H2_AjfSqiQ"
 var API_KEY1 = 'NIS6Im8kfnKr6Dbv5RtoiMJeknkxmG3Yy849JmYDA8A_t17DYH4Estn8TFUbQOoJIj0QG8HO2bZC8ZYsKrnzdSqNnGGD_FsAFO2oLIiELY98FZjdjiopg1OeM-hfXnYx';
 
+//lat1 and lng1 are for iniialzing the users longitude and latitude to zero by defualt. 
 var lat1 = 0;
 var lng1 = 0;
+//Map is for initialzing the variable for map. search is for the search variable that will be passed in to YELP API
 var map;
 var search;
-var feed;
 window.onload = function () {
+    // setting up a bunch of get elements so that i can use a addEventListener on them
     const searchB = document.getElementById('searchB');
     const check = document.getElementsByClassName("check");
     const american = document.getElementById("american");
