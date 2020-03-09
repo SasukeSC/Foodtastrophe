@@ -10,7 +10,7 @@ var lng1 = 0;
 var map;
 var search;
 window.onload = function () {
-    // setting up a bunch of get elements so that i can use a addEventListener on them
+    // setting up a bunch of get elements so that i can use a addEventListener on them. If clicked, they will go to the search query function and find the locations
     const searchB = document.getElementById('searchB');
     const check = document.getElementsByClassName("check");
     const american = document.getElementById("american");
@@ -49,7 +49,9 @@ window.onload = function () {
         searchQuery();
     })
     searchB.addEventListener('click', searchQuery);
+    //initialzing startPos variable for initial longitude and latitude 
     var startPos;
+    //function for setting up the initial map on the site with your location as the center.
     var geoSuccess = function (position) {
         startPos = position;
         lat1 = startPos.coords.latitude;
@@ -73,6 +75,7 @@ window.onload = function () {
         });
     };
 
+    //Functioning for searching the places the user wants based on search box results
     function searchQuery(event) {
         var defaut = "";
         if (!search) {
@@ -81,7 +84,7 @@ window.onload = function () {
                 defaut = "&term=" + search + "&";
             }
         }
-
+        //get elements for checking if all the check boxes i made are checked
         var open = document.getElementById("openNow").checked;
         var p1 = document.getElementById("$").checked;
         var p2 = document.getElementById("$$").checked;
@@ -94,6 +97,7 @@ window.onload = function () {
         var biking = document.getElementById("biking").checked;
         var driving = document.getElementById("driving").checked;
 
+        //these will add to the query link depending on if the boxes are checked or not
         var radius = "";
         var sort = "";
         var price = "";
@@ -151,11 +155,12 @@ window.onload = function () {
         }
 
         console.log(search);
-
+        //this is the URL for grabbing the data based on all the variables above
         var URL = ' https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?' + defaut + 'latitude=' + lat1 + '&longitude=' + lng1 + radius + category + sort + price + openNow;
         var req = new Request(URL, {
             method: 'GET',
             headers: new Headers({
+                //setting the api key so i have the right to access data
                 'Authorization': 'Bearer ' + API_KEY1,
                 'Content-Type': 'application/json'
             })
@@ -172,6 +177,7 @@ window.onload = function () {
                 }
             })
             .then((jsonData) => {
+                //the if statement is checking if the data returned from Yelp is not empty
                 if (jsonData.businesses[0]) {
                     search = null;
                     console.log(jsonData.businesses);
@@ -230,12 +236,14 @@ window.onload = function () {
                         map.fitBounds(bounds);
                     }
                 } else {
+                    //displays no results if there is no data
                     alert("No Results!");
                     // yourLocation
                     var yourLocation = {
                         lat: lat1,
                         lng: lng1
                     };
+                    //resets map to your initial location
                     var map = new google.maps.Map(
                         document.getElementById('map'), {
                             zoom: 10,
@@ -247,5 +255,6 @@ window.onload = function () {
                 console.log('ERROR: ', err.message);
             });
     }
+    //prompt for getting location
     navigator.geolocation.getCurrentPosition(geoSuccess);
 };
