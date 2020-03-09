@@ -11,7 +11,10 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <!--My own CSS-->
   <link rel="stylesheet" href="style.css">
+  <!--My own JavaScript-->
   <script src="script.js"></script>
+
+  <!--Title-->
   <title>Foodtastrophe</title>
 </head>
 
@@ -33,13 +36,12 @@
 
       <!--For for searching different queries for food-->
       <form class="form-inline my-2 my-lg-0 search " style="margin: 0 auto;">
-        <input class="form-control mr-sm-2 box" type="search" placeholder="Search any restuarant..." aria-label="Search"
-          id="search">
-        <button class="btn btn-dark my-2 my-sm-0 sign-in" type="submit">Search</button>
+        <input id='search' class="form-control mr-sm-2 box" placeholder="Search any restuarant..." aria-label="Search">
+        <button class="btn btn-dark my-2 my-sm-0 sign-in" type="button" id='searchB'>Search</button>
       </form>
 
-      <!--Button to Sign in with Google-->
-      <button class="btn btn-dark my-2 my-sm-0 sign-in" type="submit">Sign-in</button>
+      <!--My logo that leads to my linkedin.-->
+
       <a class="navbar-brand" href="https://www.linkedin.com/in/bennyvazquez/"> <img
           src="/Images/UchihaSymbolNoBackground.svg" alt="Uchiha Logo" class="MyLogo"></a>
     </div>
@@ -48,14 +50,172 @@
   <!--Map and Restuarant Divs-->
   <div id="parent">
     <div id="main">
-      <h1>e</h1>
+
+      <!-- Default dropright button -->
+      <div class="btn-group dropright">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" style="margin-top: 20%; margin-left: 20%;">
+          Filter
+        </button>
+        <div class="dropdown-menu">
+          <!-- Dropdown menu links only has "open now" filter.-->
+          <div class="form-check" style="margin-left: 20%;">
+            <input class="form-check-input check" type="checkbox" value="" id="openNow">
+            <label class="form-check-label" for="defaultCheck1">
+              Open Now
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prices Filter Dropright Button -->
+      <div class="btn-group dropright">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" style="margin-top: 20%; margin-left: 20%;">
+          Prices
+        </button>
+        <div class="dropdown-menu">
+          <!-- Dropdown Filter Prices -->
+
+          <!--First Price option-->
+          <div class="form-check" style="margin-left: 20%;">
+            <input class="form-check-input check" type="checkbox" value="" id="$">
+            <label class="form-check-label" for="defaultCheck1">
+              $
+            </label>
+          </div>
+          <!--Second Price option-->
+          <div class="form-check" style="margin-left: 20%;">
+            <input class="form-check-input check" type="checkbox" value="" id="$$">
+            <label class="form-check-label" for="defaultCheck1">
+              $$
+            </label>
+          </div>
+          <!--Third Price option-->
+          <div class="form-check" style="margin-left: 20%;">
+            <input class="form-check-input check" type="checkbox" value="" id="$$$">
+            <label class="form-check-label" for="defaultCheck1">
+              $$$
+            </label>
+          </div>
+          <!--Fourth Price option-->
+          <div class="form-check" style="margin-left: 20%;">
+            <input class="form-check-input check" type="checkbox" value="" id="$$$$">
+            <label class="form-check-label" for="defaultCheck1">
+              $$$$
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Default dropright button -->
+      <div class="btn-group dropright">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" style="margin-top: 20%; margin-left: 20%;">
+          Sort by
+        </button>
+        <div class="dropdown-menu">
+          <!-- Dropdown menu links -->
+          <div class="form-check form-check-inline" style="margin-left: 20%;">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="recommended" value="option1"
+              checked>
+            <label class="form-check-label check" for="inlineRadio1">Recommended</label>
+          </div>
+          <div class="form-check form-check-inline" style="margin-left: 20%;">
+            <input class="form-check-input check" type="radio" name="inlineRadioOptions" id="highestRated"
+              value="option2">
+            <label class="form-check-label" for="inlineRadio2">Highest Rated</label>
+          </div>
+          <div class="form-check form-check-inline" style="margin-left: 20%;">
+            <input class="form-check-input check" type="radio" name="inlineRadioOptions" id="mostReviewed"
+              value="option1">
+            <label class="form-check-label" for="inlineRadio1">Most Reviewed</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Distance Dropright Filter -->
+      <div class="btn-group dropright">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" style="margin-top: 20%; margin-left: 20%;">
+          Distance
+        </button>
+        <div class="dropdown-menu">
+          <!-- Dropdown menu links for distance that you would like to search for.-->
+          <div class="form-check form-check-inline" style="margin-left: 20%;">
+            <input class="form-check-input check" type="radio" name="inlineRadioOptions" id="walking" value="option1"
+              checked>
+            <label class="form-check-label" for="inlineRadio1">Walking<br>(1 mi.)</label>
+          </div>
+          <div class="form-check form-check-inline" style="margin-left: 20%;">
+            <input class="form-check-input check" type="radio" name="inlineRadioOptions" id="biking" value="option2">
+            <label class="form-check-label" for="inlineRadio2">Biking(2 mi.)</label>
+          </div>
+          <div class="form-check form-check-inline" style="margin-left: 20%;">
+            <input class="form-check-input check" type="radio" name="inlineRadioOptions" id="driving" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Driving(5 mi.)</label>
+          </div>
+        </div>
+      </div>
+
+
+      <!--All the buttons for quick access to some categories. When clicked, it will populate the search bar with the respective category and search.-->
+
+      <!--American Button-->
+      <h2 class="foodTitles">American!</h2>
+      <button id="american" class="foodType" type="button" class="btn btn-secondary foodType" data-toggle="tooltip"
+        data-placement="right" title="Picks a random restuarant based on your current filters!"
+        style="border-radius: 50%; width: 75%; height: 25%;" value="American"> <img src="/Images/american.jpg"
+          width="100%" height="100%" style="border-radius: 50%;">
+      </button>
+      <!--Asian Button-->
+      <h2 class="foodTitles">Asian!</h2>
+      <button id="asian" type="button" class="btn btn-secondary foodType" data-toggle="tooltip" data-placement="right"
+        title="Picks a random restuarant based on your current filters!"
+        style="border-radius: 50%; width: 75%; height: 25%;" value="Asian">
+        <img src="/Images/asian.jpeg" width="100%" height="100%" style="border-radius: 50%;">
+      </button>
+
+      <!--Breakfast Button-->
+      <h2 class="foodTitles">Breakfast!</h2>
+      <button id="breakfast" type="button" class="btn btn-secondary foodType" data-toggle="tooltip"
+        data-placement="right" title="Picks a random restuarant based on your current filters!"
+        style="border-radius: 50%; width: 75%; height: 25%;" value="Breakfast">
+        <img src="/Images/breakfast.jpg" width="100%" height="100%" style="border-radius: 50%;">
+      </button>
+      <!--Fast Food Button-->
+      <h2 class="foodTitles">Fast Food!</h2>
+      <button id="fastfood" type="button" class="btn btn-secondary foodType" data-toggle="tooltip"
+        data-placement="right" title="Picks a random restuarant based on your current filters!"
+        style="border-radius: 50%; width: 75%; height: 25%;" value="Fast Food">
+        <img src="/Images/fastfood.jpg" width="100%" height="100%" style="border-radius: 50%;">
+      </button>
+      <!--Italian Button-->
+      <h2 class="foodTitles">Italian!</h2>
+      <button id="italian" type="button" class="btn btn-secondary foodType" data-toggle="tooltip" data-placement="right"
+        title="Picks a random restuarant based on your current filters!"
+        style="border-radius: 50%; width: 75%; height: 25%;" value="Italian">
+        <img src="/Images/italian.jpg" width="100%" height="100%" style="border-radius: 50%;">
+      </button>
+      <!--Mexican Button-->
+      <h2 class="foodTitles">Mexican!</h2>
+      <button id="mexican" type="button" class="btn btn-secondary foodType" data-toggle="tooltip" data-placement="right"
+        title="Picks a random restuarant based on your current filters!"
+        style="border-radius: 50%; width: 75%; height: 25%;" value="Mexican">
+        <img src="/Images/mexican.jpg" width="100%" height="100%" style="border-radius: 50%;">
+      </button>
+
+
+      <!--End of Main Div-->
     </div>
+
+    <!--This is the dive that contains the map. Most of the work is done in the javascript file-->
     <div id="map">
-      <h1>e</h1>
+
     </div>
   </div>
 
-  <!--Bootstrap Scripts. In order of links, they are jQuery first, then Popper.js, then Bootstrap JS-->
+  <!--Bootstrap Scripts. In order of links, they are jQuery first, then Popper.js, then Bootstrap JS and Google Maps script-->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
   </script>
@@ -65,6 +225,9 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7rk-u3PkM2D-M0QRlLitc7H2_AjfSqiQ&callback=initMap"
+    type="text/javascript"></script>
 </body>
 
 </html>

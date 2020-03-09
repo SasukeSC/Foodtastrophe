@@ -1,26 +1,38 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/*This if for navbar coloring and height*/
 .navbar-custom {
     background-color: #2F3136;
     height: 20%;
 }
 
+/*This if for the size of my food logo*/
 .foodtastraphe {
     width: 100%;
     padding-right: 0px;
     height: auto;
 }
 
+/*This if for the size of my logo*/
 .MyLogo {
     padding-left: 20%;
     width: 93px;
     height: 93px;
 }
 
+/*This if for having the colors of the search box*/
 .search {
     padding-right: 150px;
     text-align: center;
     position: relative;
 }
 
+/*This if for having the colors of the search box*/
 .box {
     width: 100%;
     border-color: #202225;
@@ -29,35 +41,34 @@
 
 }
 
+/*This if for having the focus of search bar not change color*/
 .form-control:focus {
     border-color: inherit;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
 
-input[type=search]:focus {
+/*This if for having the focus of search bar not change color*/
+#search:focus {
     outline: none;
     background-color: #202225;
     color: #686769;
     box-shadow: #202225;
 }
 
-.sign-in {
-    color: #686769;
-    border-radius: 12px;
-    background-color: #34373C;
-}
 
+
+/*This if for the parent div and having the main and map divs side by side*/
 #parent {
     width: 100%;
     height: 100%;
-    border: 1px solid red;
     float: left;
     display: flex;
     flex-grow: 1;
     overflow: auto;
 }
 
+/*This if for styling the background of the main div on the left. The div with all the buttons and food options*/
 #main {
     background-color: #36393F;
     width: 100%;
@@ -66,9 +77,17 @@ input[type=search]:focus {
     overflow: auto;
 }
 
+/*This if for styling the background of the map div and making sure it sticks to the page in case of scroll*/
 #map {
-    background-color: blue;
+    background-color: gray;
+    position: sticky;
     width: 100%;
     height: 100%;
     overflow: auto;
+}
+
+/*This if for styling all the headers to the preset food buttons*/
+.foodTitles {
+    color: white;
+    margin-left: 25%;
 }
